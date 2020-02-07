@@ -1,6 +1,4 @@
 # apex
-Repositórios aulas Apex Front-end
-
-Alterações a serem salvas
-
-Nova descrição no projeto teste
+ - Projeto para criação de um sistema para acompanhamento nutricional. 
+ - Plataforma para o Profissional Nutricionista
+ - App para o paciente acompanhar sua evolução
