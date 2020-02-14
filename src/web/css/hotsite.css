@@ -3,7 +3,7 @@
     font-family: 'Roboto', sans-serif;
 }
 html, body {
-    background-color: #000000;
+    background-color: rgba(221, 105, 245, 0.897);
     height: 100%;
     width: 100%;
 }
@@ -21,18 +21,18 @@ html, body {
     justify-content: space-between;
     padding: 20px;
     align-items: center;
-    border: blue solid 3px;
+    
 
 }
 .logo{
     display: flex;
     align-items: center;
     font-size: 18px;
-    border: green solid 3px;
+    
 }
 .login{
     font-size: 18px;
-    border: greenyellow  solid 3px;
+    
 }
 .botao-entrar{
     border: 1px solid;
@@ -61,4 +61,71 @@ html, body {
 }
 .slogan h3 {
     font-size: 22px;
+}
+
+@media screen and (max-width: 549px){
+    .slogan h1 {
+        font-size: 28px;
+        padding: 20px;
+    }
+    .slogan{
+        font-size: 18px;
+        text-align: center;
+    }
+    .login.desktop {
+        display: none;
+    }
+    .login.mobile{
+        display: flex;
+        flex-direction: column  ;
+
+    }
+    .topo.desktop{
+        display: none;
+    }
+    .botao-entrar {
+        margin: 10px;
+    }
+   
+}
+@media screen and (min-width: 550px){
+    .login{
+        display: block;
+    }
+    .login.mobile{
+        display: none;
+    }
+    .logo.mobile{
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 900px) { 
+  .slogan {
+      text-align: center;
+  }
+}
+
+@media screen and ( min-width: 901px) and (-width: 950px){
+    .login.desktop{
+        font-size: 40px;
+            
+    }
+    .topo.desktop{
+        justify-content: center;
+       
+    }
+    .slogan h1 {
+        font-size: 60px;
+        text-align: center;
+    }
+    .slogan h3 {
+        font-size: 35px;
+        text-align: center;
+    } 
+    .logo.desktop {
+        display: none;
+    }
+   
 }

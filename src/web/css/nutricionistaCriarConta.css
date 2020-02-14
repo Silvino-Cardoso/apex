@@ -1,0 +1,22 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.container-fluid {
+    background-color: rgba(221, 105, 245, 0.897);
+    height: 100%;
+    width: 100%;
+    
+}
+.criar-conta{
+    height: 100%;
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
