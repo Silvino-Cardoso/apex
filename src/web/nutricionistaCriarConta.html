@@ -1,35 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Acompanhamento Nutricional</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Acompanhamento Nutricional</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/nutricionistaCriarConta.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <link rel="stylesheet" href="css/nutricionistaCriarConta.css">
 </head>
+
 <body>
-    <div class="container-fluid">
-        <form class="criar-conta">
-            <h1>Crie sua Conta!</h1>
-            <hr>
-            <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="Nome">
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="Sobrenome">
-                </div>
-              </div>
-        </form>
-    </div>
+  <div class="container-fluid">
+    <form class="criar-conta">
+      <img src="./images/logo-mobile.png" alt="">
+      <h1>Crie sua Conta!</h1>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="Nome" id="name">
+        </div>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="Sobrenome" id="sobrenome">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <input type="email" class="form-control" placeholder="Email" id="email">
+        </div>
+        <div class="col-sm-3">
+          <input type="password" class="form-control" placeholder="Digite sua senha" id="senha">
+        </div>
+        <div class="col-sm-3">
+          <input type="password" class="form-control" placeholder="Repita sua senha" id="repitaSenha">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <input type="number" class="form-control" placeholder="CPF" id="cpf">
+        </div>
+        <div class="col-sm-2">
+          <input type="number" maxlength="3" class="form-control" placeholder="DDD" id="ddd">
+        </div>
+        <div class="col-sm-4">
+          <input type="number" maxlength="3" class="form-control" placeholder="Telefone" id="telefone">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <input type="number" class="form-control" placeholder="RG" id="rg">
+        </div>
+        <div class="col-sm-4">
+          <input type="date" class="form-control" placeholder="Data de nascimento" id="dataNascimento">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <input type="text" class="form-control" placeholder="CEP" id="cep">
+        </div>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" placeholder="Rua" id="rua">
+        </div>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" placeholder="Número" id="complemento">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-5">
+          <input type="text" class="form-control" placeholder="Bairro" id="bairro">
+        </div>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" placeholder="Cidade" id="cidade">
+        </div>
+        <div class="col-sm-2">
+          <select class="form-control" id="estado">
+            <option>Estado</option>
+            <option>SC</option>
+            <option>PR</option>
+            <option>RO</option>
+            <option>MG</option>
+            <option>SP</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col ">
+          <input type="text" class="form-control" placeholder="Número de registro" id="registroProfissional">
+        </div>
+        <div class="col">
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01">
+              <label class="custom-file-label" for="inputGroupFile01">Enviar logo</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="facebook"><i class="fab fa-facebook"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Facebook">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="instagram"><i class="fab fa-instagram"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Instagram">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="linkedin"><i class="fab fa-linkedin"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Linkedin">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="twitter"><i class="fab fa-twitter"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Twitter">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <div class="checkbox">
+            <input type="checkbox">Li e concordo com os <a href="#"> termos de uso e política de privacidade</a>
+          </div>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary" onclick="cadastrarNutricionista()">Enviar</button>
+          <button type="button" class="btn btn-primary">Cancelar </button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+  <script src="js/cadastro.js"></script>
 </body>
+
 </html>

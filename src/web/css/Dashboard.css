@@ -1,0 +1,17 @@
+.container-fluid{
+    background-color: rgba(221, 105, 245, 0.897);
+}
+
+.navbar{
+    background-color:  rgba(221, 105, 245, 0.897);
+}
+
+.card{
+    margin: 10px;
+}
+
+.card-img-top{
+    width: 100%;
+    height: 300px;
+}
+
