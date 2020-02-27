@@ -22,6 +22,7 @@ const $twitter = document.getElementById('twitter')
 
 
 function cadastrarNutricionista () {
+    console.log('teste')
     const dadosEnvio = {
         nome: $nome.value,
         sobrenome: $sobrenome.value,
@@ -54,5 +55,7 @@ function cadastrarNutricionista () {
         'Content-Type': 'application/json'
     }
 }
-    fetch('http://localhost:3000/nutricionistas', configuracaorequest)
-} 
+
+    axios.post('http://localhost:3000/nutricionistas', dadosEnvio)
+    .then(response =>  console.log(response.data))
+}
