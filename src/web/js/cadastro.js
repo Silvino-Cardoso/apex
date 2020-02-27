@@ -56,6 +56,30 @@ function cadastrarNutricionista () {
     }
 }
 
+if (
+    !dadosEnvio.nome || 
+    !dadosEnvio.sobrenome ||
+    !dadosEnvio.email ||
+    !dadosEnvio.senha ||
+    !dadosEnvio.repitaSenha ||
+    !dadosEnvio.cpf ||
+    !dadosEnvio.ddd ||
+    !dadosEnvio.telefone ||
+    !dadosEnvio.rg ||
+    !dadosEnvio.dataNascimento ||
+    !dadosEnvio.cep ||
+    !dadosEnvio.rua ||
+    !dadosEnvio.complemento ||
+    !dadosEnvio.bairro ||
+    !dadosEnvio.cidade ||
+    !dadosEnvio.estado ||
+    !dadosEnvio.registroProfissional
+){
+    alert('você precisa preeencher todos os campor obrigatórios')
+} else {
     axios.post('http://localhost:3000/nutricionistas', dadosEnvio)
     .then(response =>  console.log(response.data))
+}
+
+   
 }
