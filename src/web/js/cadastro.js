@@ -1,27 +1,5 @@
-const $nome = document.getElementById('name')
-const $sobrenome = document.getElementById('sobrenome')
-const $email = document.getElementById('email')
-const $senha = document.getElementById('senha')
-const $repitaSenha = document.getElementById('repitaSenha')
-const $cpf = document.getElementById('cpf')
-const $ddd= document.getElementById('ddd')
-const $telefone = document.getElementById('telefone')
-const $rg = document.getElementById('rg')
-const $dataNascimento = document.getElementById('dataNascimento')
-const $cep = document.getElementById('cep')
-const $rua = document.getElementById('rua')
-const $complemento = document.getElementById('complemento')
-const $bairro = document.getElementById('bairro')
-const $cidade = document.getElementById('cidade')
-const $estado = document.getElementById('estado')
-const $registroProfissional = document.getElementById('registroProfissional')
-const $facebook = document.getElementById('facebook')
-const $instagram = document.getElementById('instagram')
-const $linkedin = document.getElementById('linkedin')
-const $twitter = document.getElementById('twitter')
 
-
-function cadastrarNutricionista () {
+function cadastrarNutricionista() {
     console.log('teste')
     const dadosEnvio = {
         nome: $nome.value,
@@ -48,38 +26,93 @@ function cadastrarNutricionista () {
     }
 
     const configuracaorequest = {
-    method: 'Post',
-    body: JSON.stringify(dadosEnvio),
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        method: 'Post',
+        body: JSON.stringify(dadosEnvio),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
+
+    if (
+        !dadosEnvio.nome ||
+        !dadosEnvio.sobrenome ||
+        !dadosEnvio.email ||
+        !dadosEnvio.senha ||
+        !dadosEnvio.repitaSenha ||
+        !dadosEnvio.cpf ||
+        !dadosEnvio.ddd ||
+        !dadosEnvio.telefone ||
+        !dadosEnvio.rg ||
+        !dadosEnvio.dataNascimento ||
+        !dadosEnvio.cep ||
+        !dadosEnvio.rua ||
+        !dadosEnvio.complemento ||
+        !dadosEnvio.bairro ||
+        !dadosEnvio.cidade ||
+        !dadosEnvio.estado ||
+        !dadosEnvio.registroProfissional
+    ) {
+        $('#preenchaTodosOsCampos').modal({
+            backdrop: 'static',
+            show: true
+        })
+        return
+    }
+    if (dadosEnvio.senha != dadosEnvio.repitaSenha) {
+        $(senhasNaoConferem).modal({
+            backdrop: 'static',
+            show: true
+        })
+    }
+
+    else {
+        axios.post('http://localhost:3000/nutricionistas', dadosEnvio)
+            .then(() => {
+                $('#SalvoComSucesso').modal('show')
+            })
+            .catch(() => {
+                $('#erroAoSalvar').modal({
+                    backdrop: 'static',
+                    show: true
+                })
+            })
     }
 }
 
-if (
-    !dadosEnvio.nome || 
-    !dadosEnvio.sobrenome ||
-    !dadosEnvio.email ||
-    !dadosEnvio.senha ||
-    !dadosEnvio.repitaSenha ||
-    !dadosEnvio.cpf ||
-    !dadosEnvio.ddd ||
-    !dadosEnvio.telefone ||
-    !dadosEnvio.rg ||
-    !dadosEnvio.dataNascimento ||
-    !dadosEnvio.cep ||
-    !dadosEnvio.rua ||
-    !dadosEnvio.complemento ||
-    !dadosEnvio.bairro ||
-    !dadosEnvio.cidade ||
-    !dadosEnvio.estado ||
-    !dadosEnvio.registroProfissional
-){
-    alert('você precisa preeencher todos os campor obrigatórios')
-} else {
-    axios.post('http://localhost:3000/nutricionistas', dadosEnvio)
-    .then(response =>  console.log(response.data))
+function buscarEstados() {
+    axios
+        .get('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+        .then(({ data }) => {
+           
+            const options = data.map(function (item) {
+                return `<option value ="${item.sigla}" data-id="${item.id}" >${item.nome}</option>`
+            })
+        
+            $estado.insertAdjacentHTML("beforeend",options)
+        })
+    
 }
 
-   
+function buscarCidades(){
+    const indiceEstadoSelecionado = $estado.selectedIndex 
+
+    const stateId = $estado.options[indiceEstadoSelecionado].getAttribute('data-id')
+
+    return axios
+    .get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateId}/municipios`)
+    .then(({data}) => {
+        const optionsCidade = data.map(function (data){
+            return `<option value ="${data.id}">${data.nome}</option>`
+        })
+
+        $cidade.options.length = 0
+        $cidade.insertAdjacentHTML('beforeend', optionsCidade)
+    })
+
 }
+
+buscarEstados()
+
+
+

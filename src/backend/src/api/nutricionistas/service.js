@@ -5,7 +5,7 @@ const colecaoNutricionistas= firebase.collection('nutricionistas')
 function salvarNutricionistas(dados){
     colecaoNutricionistas 
     .doc(dados.nome)
-    set(dados)
+    .set(dados)
 }
 
 function buscarNutricionistas(){

@@ -12,9 +12,6 @@ router.post('/', function (req, res) {
     const dadosNutricionista = req.body
     service.salvarNutricionistas(dadosNutricionista)
 
-    let docRef = firebase.collection('nutricionistas').doc(dadosNutricionista.nome);
-    docRef.set(dadosNutricionista);
-
     res.sendStatus(204)
 })
 

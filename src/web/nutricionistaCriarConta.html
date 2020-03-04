@@ -62,9 +62,16 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-2">
-          <input type="text" class="form-control" placeholder="CEP*" id="cep">
+        
+        <div class="col-sm-3">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="CEP*" id="cep" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" onclick="consultarCEP()"  id="button-addon2">Button</button>
+            </div>
+          </div>
         </div>
+
         <div class="col-sm-7">
           <input type="text" class="form-control" placeholder="Rua*" id="rua">
         </div>
@@ -77,17 +84,14 @@
         <div class="col-sm-5">
           <input type="text" class="form-control" placeholder="Bairro*" id="bairro">
         </div>
-        <div class="col-sm-5">
-          <input type="text" class="form-control" placeholder="Cidade*" id="cidade">
-        </div>
         <div class="col-sm-2">
-          <select class="form-control" id="estado*">
+          <select class="form-control" id="estado" onchange="buscarCidades()">
             <option>Estado</option>
-            <option>SC</option>
-            <option>PR</option>
-            <option>RO</option>
-            <option>MG</option>
-            <option>SP</option>
+          </select>
+        </div>
+        <div class="col-sm-5">
+          <select class="form-control" id="cidade">
+            <option>cidade</option>
           </select>
         </div>
       </div>
@@ -162,6 +166,70 @@
 
   </div>
 
+  <div class="modal" id="SalvoComSucesso" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Você foi cadastrado com sucesso</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="erroAoSalvar" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ops! Algo errado não está certo! Favor tente novamente!</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="senhasNaoConferem" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Senhas não conferem!</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="preenchaTodosOsCampos" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Você deve preencher todos os campos obrigatórios</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cepNaoEncontrado" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">CEP não encontrado</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -175,7 +243,10 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  <script src="js/cadastrosCampos.js"></script>
   <script src="js/cadastro.js"></script>
+  <script src="js/consultaCEP.js"></script>
 
 </body>
 
