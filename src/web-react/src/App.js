@@ -1,45 +1,28 @@
-import React from 'react';
-import { Button, Container, Row, Col } from 'reactstrap'
+import React, { Fragment } from 'react';
 
-import { LabelInput } from './components/Input'
+import { createGlobalStyle } from "styled-components"
 
+import { Routes } from './routes'
+
+// aplica estilos globalmente
+
+const GlobalStyle = createGlobalStyle`
+html,Body, #root {
+  width:100%;
+  height:100%;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+`
 
 function App() {
   return (
-    <Container fluid>
-      <Row>
-        <Col>
-          <LabelInput 
-          id='Id-01' 
-          label='Nome' 
-          helptext="Texto de ajuda" 
-          type='text' />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col>
-          <LabelInput 
-          id='Id-02' 
-          label='Email' 
-          helptext="seu@email.com" 
-          type='email' />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col>
-          <LabelInput 
-          id='Id-03' 
-          label='Senha' 
-          helptext="Texto de ajuda" 
-          type='password' />
-        </Col>
-
-      </Row>
-      <Button color="primary">primary</Button>{' '}
-    </Container>
-  );
+    <Fragment>
+      <Routes />
+      <GlobalStyle />
+    </Fragment>
+  )
 }
+
 
 export default App;
